@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br>
+    <div class="bajaaa"><h1>Bienvenido al blog de SNV</h1></div>
+    {% for posts in post %}
+        <div class="card">
+            {% if posts.ispublished == 1 %}
+                <div class="card-body">
+                    <a href="{{ path('viewpost',  {'id':posts.id}) }}">
+                        <h3 class="card-title">{{ posts.title }}</h3>
+                        <p class="card-text text-justify">{{ posts.content [:90]| raw }}...</p></a>
+
+                    {{ posts.publishedAt|date("d/m/Y") }}
+                    {{ posts.modifiedAt|date("d/m/Y") }}
+
+
+
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+{% endblock %}

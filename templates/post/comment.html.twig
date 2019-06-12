@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="col-lg-6 box-form bajar">
+        <h1>Comenta</h1>
+        {{form_start(form)}}
+        {{ form_widget(form) }}
+        <br>
+        <input type="submit" class="btn btn-success" value="Comentar">
+        <a class="btn btn-danger" href="{{ path('app_homepage') }}">Cancelar</a></button>
+        {{ form_errors(form) }}
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

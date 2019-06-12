@@ -1,0 +1,40 @@
+.post_general{
+    margin-top: 15vh;
+}
+.bajaaa{
+    margin-top: 25vh;
+}
+.titulo{
+    margin-top: 25vh;
+    margin-bottom: 7vh;
+}
+.subri, .bajar{
+    margin-top: 25vh;
+}
+.padre{
+    width: 25%;
+}
+.grideados{
+    height: 20vh;
+}
+.txts{
+
+
+}
+.margenes{
+    margin-top: 25vh;
+}
+.padre{
+    height: 50px;
+    width: 50px;
+}
+.grid_pro{
+    height: 20vh;
+    width: 25vw;
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+.postss{
+    height: 250px!important;
+}

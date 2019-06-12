@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="am_formulario">
+    {% for posts in post %}
+        <h2 class="bajar">Editar el post: <strong>{{ posts.title }}</strong></h2><br><br>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}<br>
+        <input type="submit" class="btn btn-success" value="Register">
+        <a href="{{ path('app_postpage') }}" class="btn-cancel">Cancelar</a></button>
+        {{ form_errors(form) }}
+        {{ form_end(form) }}
+    {% endfor %}
+</div>
+{% endblock %}

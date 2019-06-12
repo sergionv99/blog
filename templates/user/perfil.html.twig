@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+<div class="subri">
+<p>Bienvenido a tu perfil</p>{{ app.user.username }}
+    <p>Tus estadisticas</p>
+</div>
+{% endblock %}

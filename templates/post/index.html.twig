@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br>
+    <div class="bajaaa"><h1>Todos los post</h1></div>
+    <p><a href="{{ path('new_post') }}">Crear post</a></p>
+    {% for posts in post %}
+        <div class="card">
+            {% if posts.ispublished == 1 %}
+            <div class="card-body">
+                <a href="{{ path('viewpost',  {'id':posts.id}) }}">
+                <h3 class="card-title">{{ posts.title }}</h3>
+                <p class="card-text text-justify">{{ posts.content [:90]| raw }}...</p></a>
+
+                    {{ posts.publishedAt|date("d/m/Y") }}
+                    {{ posts.modifiedAt|date("d/m/Y") }}
+                {% if is_granted('ROLE_USER') %}
+                    <a class="2"  href="{{ path('delete_post', {'id':posts.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                    <a class="2"  href="{{ path('edit_post', {'id':posts.id}) }}" onclick="return confirm('¿Estás seguro?')">editar</a>
+                {% endif %}
+
+
+            </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+{% endblock %}

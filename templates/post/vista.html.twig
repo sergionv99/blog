@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="col-lg-6 box-form">
+        <div class="margenes">
+            <h1> {{ post.title }}</h1>
+            <p>{{ post.content }}</p>
+            <p>{{  post.publishedAt|date("d/m/Y") }}
+            {{ post.author }}</p>
+        </div>
+    </div>
+    {% for post in post.comments %}
+        {{ post.comment }}
+        {{ post.user }}
+    {% endfor %}
+    <div>Deja tu comentario</div>
+    <a class="navbar-brand" href="{{ path('new_coment', {'id':post.id}) }}">Comenta</a>
+
+
+{% endblock %}

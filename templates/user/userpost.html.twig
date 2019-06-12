@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br>
+    <h2 class="bajar">Post del susuario {{ app.user.username }}:</h2>
+        <p><a href="{{ path('new_post') }}">Crear post</a></p>
+    {% for post in posts %}
+        <div class="card"">
+            <div class="card-body">
+                <h3 class="card-title">{{ post.title }}</h3>
+                <p class="card-text text-justify">{{ post.content [:90]| raw }}...</p>
+                {% if post.ispublished == 1 %}
+                    {{ post.publishedAt|date("m/d/Y") }}
+                {% endif %}
+                {% if is_granted('ROLE_USER"') %}
+                <a class="2"  href="{{ path('publicar_post', {'id':post.id}) }}" onclick="return confirm('¿Estás seguro?')">Publicar</a>
+                <a class="2"  href="{{ path('a_despublicar', {'id':post.id}) }}" onclick="return confirm('¿Estás seguro?')">Despublicar</a>
+                <a class="2"  href="{{ path('delete_post', {'id':post.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
